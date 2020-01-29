@@ -30,7 +30,7 @@ mongo_conn = MongoConn.instance()
 
 def gen_sig(phone):
     t = int(time.time())
-    sig = sha256('appkey={}&random={}&time={}&mobile={}'.format('69b699630f6033b333c5f5ca34e49a23', random_key, t, phone)).hexdigest()
+    sig = sha256('appkey={}&random={}&time={}&mobile={}'.format('', random_key, t, phone)).hexdigest()
     return sig, t
 
 class TXSMS(object):

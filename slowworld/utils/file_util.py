@@ -45,4 +45,4 @@ if __name__ == '__main__':
     # md5 = get_md5('/Users/mac/Downloads/0001876-w-b-1.png')
     # print(md5)
     print(1)
-    zipfiles("../data/channel_output", ["小哈皮原单.xlsx", "有赞原单.xlsx"],"../data/vendor_zip/dog.zip")
+    zipfiles("", [],"")

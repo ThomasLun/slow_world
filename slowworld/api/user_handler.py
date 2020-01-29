@@ -10,7 +10,7 @@ from slowworld.api import BaseHandler
 
 
 class UserHandler(BaseHandler):
-    # 子商品
+    # 用户
     def __init__(self, application, request, **kwargs):
         super(UserHandler, self).__init__(application, request, **kwargs)
 
