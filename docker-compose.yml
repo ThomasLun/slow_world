@@ -1,0 +1,74 @@
+version: '2'
+services:
+#  slowworld:
+#    image: slowworld
+#    restart: always
+#    build:
+#      context: "slowworld"
+#      dockerfile: Dockerfile
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-size: "50m"
+#        max-file: "4"
+#    environment:
+#      - DOCKER=true
+#    volumes:
+#      - ./slowworld:/slowworld
+#      - ./data:/data
+#    ports:
+#      - '6363:8000'
+#    container_name: slowworld
+#    depends_on:
+#      - order_redis
+
+
+#  worker:
+#    image: "slowworld"
+#    restart: always
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-size: "50m"
+#        max-file: "4"
+#    environment:
+#      - DOCKER=true
+#    depends_on:
+#      - slowworld
+#    volumes:
+#      - ./slowworld:/slowworld
+#      - ./data:/data
+#    working_dir: /slowworld
+#    command: ["python", "worker.py"]
+#    container_name: worker
+#    depends_on:
+#      - order_redis
+
+  world_redis:
+    image: "redis:3.2"
+    restart: always
+    ports:
+      - "6440:6379"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "4"
+    volumes:
+      - "./data/slowworld/redis:/data"
+    container_name: world_redis
+
+  world_mongo:
+    image: "mongo:4.0.8"
+    restart: always
+    ports:
+      - "27001:27017"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "4"
+    volumes:
+        - "./data/slowworld/mongo:/data/db"
+    container_name: world_mongo
+
